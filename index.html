@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Gemi İnşaatı ve Gemi Makineleri Mühendisliği | 11. Sınıf Pusulası & YÖK Atlas</title>
+  <meta name="description" content="11. Sınıf Öğrencileri için Gemi İnşaatı ve Gemi Makineleri Mühendisliği Rehberi, YÖK Atlas Verileri, TYT-AYT Net Simülatörü ve Tersane Yol Haritası">
+  <meta name="theme-color" content="#061325">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e5ff'%3E%3Cpath d='M20.5 15l-1.5-1.5-3.5 3.5V3h-2v14l-3.5-3.5L8.5 15l5.5 5.5L20.5 15z'/%3E%3Ccircle cx='12' cy='3' r='2' fill='%23ffd166'/%3E%3Cpath d='M2 20h20v2H2z' fill='%2300b4d8'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-navy">
+  <!-- Mobil Üst HUD / Başlık -->
+  <header class="app-header">
+    <div class="hud-top">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="ship-icon">
+            <path d="M18 4L4 12V24L18 32L32 24V12L18 4Z" stroke="#00e5ff" stroke-width="1.8" stroke-dasharray="2 2" opacity="0.6"/>
+            <!-- Gemi Gövdesi Silueti -->
+            <path d="M6 21C11 23 25 23 30 21L28 26C24 28.5 12 28.5 8 26L6 21Z" fill="#00e5ff" fill-opacity="0.2" stroke="#00e5ff" stroke-width="1.8"/>
+            <path d="M18 7V21M13 12H23M15 9L18 7L21 9" stroke="#ffd166" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="18" r="2.5" fill="#00e5ff"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-sub">11. SINIF HEDEF & YÖK ATLAS REHBERİ</div>
+          <h1 class="brand-title">GEMİ İNŞAATI MÜHENDİSLİĞİ</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="hud-btn" title="Gündüz/Gece Modu" aria-label="Görünüm Modu">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <button id="sharePlanBtn" class="hud-btn share-hud" title="WhatsApp ile Paylaş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hızlı Durum Göstergesi (HUD Bar) -->
+    <div class="hud-bar">
+      <div class="hud-item">
+        <span class="hud-label">HEDEF SEKTÖR</span>
+        <span class="hud-val text-cyan">Tersaneler & Savunma</span>
+      </div>
+      <div class="hud-divider"></div>
+      <div class="hud-item">
+        <span class="hud-label">PUAN TÜRÜ</span>
+        <span class="hud-val text-gold">SAY (Sayısal)</span>
+      </div>
+      <div class="hud-divider"></div>
+      <div class="hud-item">
+        <span class="hud-label">ÜST TABAN SIRA</span>
+        <span class="hud-val text-emerald">16.409 (İTÜ)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ana İçerik Kapsayıcısı -->
+  <main class="app-main">
+    
+    <!-- ==================== SEKME 1: PUSULA (GENEL BAKIŞ & SEKTÖR) ==================== -->
+    <section id="tab-overview" class="tab-pane active">
+      <!-- Karşılama Kartı -->
+      <div class="hero-card">
+        <div class="hero-blueprint-badge">NAVAL ARCHITECTURE & MARINE ENGINEERING</div>
+        <h2 class="hero-title">Geleceğin Devasa Gemilerini Tasarlamaya Hazır Mısın?</h2>
+        <p class="hero-desc">
+          11. sınıf, mühendislik hedefini netleştireceğin ve AYT'nin omurgasını inşa edeceğin en kritik yıldır. 
+          Gemi İnşaatı ve Gemi Makineleri Mühendisliği; dev konteyner gemilerinden MİLGEM fırkateynlerine, 
+          milyon dolarlık mega yatlardan otonom insansız deniz araçlarına kadar tüm deniz taşıtlarını 
+          sıfırdan projelendiren, hesaplayan ve inşa eden prestijli bir mühendislik disiplinidir.
+        </p>
+
+        <div class="hero-stats-grid">
+          <div class="stat-pill">
+            <span class="stat-num text-cyan">#3</span>
+            <span class="stat-text">Türkiye Mega Yat İnşasında Dünyada 3. Sırada</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num text-gold">%90+</span>
+            <span class="stat-text">İlk 6 Ayda Tersane & Dizayn İstihdamı</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num text-emerald">Döviz</span>
+            <span class="stat-text">Uluslararası Dolar/Euro Bazlı Kazanç İmkanı</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-row">
+          <button class="btn btn-primary" onclick="switchTab('simulator')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            Net Simülatörünü Başlat
+          </button>
+          <button class="btn btn-secondary" onclick="switchTab('atlas')">
+            YÖK Atlas Üniversiteleri Gör
+          </button>
+        </div>
+      </div>
+
+      <!-- Kritik Fark Kutusu (Öğrencilerin En Çok Yanıldığı Konu) -->
+      <div class="info-alert-card">
+        <div class="alert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="alert-content">
+          <h4>En Önemli Bilgi: Gemiye Çıkıp Aylarca Sefer Yapar mıyım?</h4>
+          <p>
+            <strong>HAYIR!</strong> Gemi İnşaat Mühendisleri kaptan veya gemi zabiti değildir. 
+            <strong>Karada</strong> çalışırlar; Tuzla, Yalova ve Antalya'daki dev tersanelerde, 
+            modern dizayn ofislerinde, klaslama kuruluşlarında (Türk Loydu, DNV) ve savunma sanayiinde 
+            (ASELSAN, STM) görev yaparlar. Hayatınız okyanuslarda değil, gemilerin doğduğu modern mühendislik tesislerinde geçer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kariyer ve Çalışma Alanları Bölümü -->
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-tag">KARİYER & SEKTÖR</div>
+          <h3 class="section-title">Gemi Mühendisi Nerelerde Çalışır?</h3>
+        </div>
+        
+        <div class="sector-cards" id="sectorCardsContainer">
+          <!-- JS ile doldurulacak -->
+        </div>
+      </div>
+
+      <!-- Sektör Maaş Göstergesi -->
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-tag">GÜNCEL VERİLER</div>
+          <h3 class="section-title">Ortalama Mühendislik Gelirleri</h3>
+        </div>
+        <div class="salary-table-card" id="salaryTableContainer">
+          <!-- JS ile doldurulacak -->
+        </div>
+      </div>
+
+      <!-- Neden 11. Sınıfta Hedeflenmeli? -->
+      <div class="why-now-card">
+        <div class="why-icon">⚓</div>
+        <div class="why-body">
+          <h4>Neden Şimdiden Bu Rotayı Çizmelisin?</h4>
+          <p>
+            Gemi İnşaatı taban sıralamaları son 4 yılda <strong>42.000'den 16.409'a fırladı!</strong> 
+            Savunma sanayiimizdeki atılımlar (TCG Anadolu, Milli Muharip Gemi, MİLDEN denizaltıları) 
+            ve mega yat patlaması nedeniyle sektör şu an yetişmiş Türk mühendis arıyor. 
+            Bu hedefe ulaşmak için 11. sınıf Sayısal derslerine (Trigonometri, Fizik Vektör/Hareket, Kimya) 
+            şimdiden sımsıkı sarılman seni hedefine ulaştıracak!
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== SEKME 2: YÖK ATLAS ÜNİVERSİTELER ==================== -->
+    <section id="tab-atlas" class="tab-pane">
+      <div class="pane-header">
+        <div class="section-tag">YÖK ATLAS 2024 / 2023 VERİLERİ</div>
+        <h2 class="section-title">Tüm Üniversiteler & Taban Puanları</h2>
+        <p class="pane-sub">
+          Türkiye ve KKTC'de Gemi İnşaatı ve Gemi Makineleri Mühendisliği bulunan 
+          tüm devlet ve vakıf üniversitelerinin güncel sıralama, puan ve net verileri.
+        </p>
+      </div>
+
+      <!-- Filtreler ve Arama Çubuğu -->
+      <div class="filter-card">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="uniSearchInput" placeholder="Üniversite veya şehir ara (örn: İTÜ, Yıldız, Bursa, İzmir)...">
+          <button id="clearSearchBtn" class="clear-btn">&times;</button>
+        </div>
+
+        <div class="filter-pills-row">
+          <button class="filter-pill active" data-filter="all">Tümü (15)</button>
+          <button class="filter-pill" data-filter="devlet">🏛️ Devlet</button>
+          <button class="filter-pill" data-filter="vakif">🎓 Vakıf / Burslu</button>
+          <button class="filter-pill" data-filter="ingilizce">🌐 İngilizce</button>
+          <button class="filter-pill" data-filter="istanbul">📍 İstanbul</button>
+          <button class="filter-pill" data-filter="anadolu">🌊 Diğer İller</button>
+        </div>
+
+        <div class="sort-bar">
+          <span class="sort-label">Sırala:</span>
+          <select id="sortSelect" class="sort-dropdown">
+            <option value="rank-asc">Başarı Sırası (En Yüksekten)</option>
+            <option value="score-desc">Taban Puanı (Azalan)</option>
+            <option value="name-asc">Üniversite Adı (A-Z)</option>
+            <option value="quota-desc">Kontenjan (Çoktan Aza)</option>
+          </select>
+          <button class="compare-action-btn" id="openCompareModalBtn" disabled>
+            ⚖️ Karşılaştır (<span id="compareCount">0</span>/3)
+          </button>
+        </div>
+      </div>
+
+      <!-- Üniversiteler Listesi -->
+      <div class="uni-grid" id="uniGridContainer">
+        <!-- JS ile dinamik doldurulacak -->
+      </div>
+    </section>
+
+
+    <!-- ==================== SEKME 3: HEDEF & NET SİMÜLATÖRÜ ==================== -->
+    <section id="tab-simulator" class="tab-pane">
+      <div class="pane-header">
+        <div class="section-tag">11. SINIF İNTERAKTİF SİMÜLATÖR</div>
+        <h2 class="section-title">Hedef Netini Belirle, Limanını Gör!</h2>
+        <p class="pane-sub">
+          Mevcut veya 11. sınıf sonu için hedeflediğin TYT & AYT netlerini gir; 
+          yaklaşık Sayısal (SAY) puanını, sıralamanı ve hangi üniversitelerin sana açıldığını anında gör!
+        </p>
+      </div>
+
+      <!-- Simülatör Grid -->
+      <div class="sim-container">
+        <!-- Sol: Net Giriş Formu -->
+        <div class="sim-inputs-card">
+          <div class="card-head">
+            <div class="head-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Net Giriş Paneli</span>
+            </div>
+            <div class="preset-buttons">
+              <button class="preset-btn" onclick="applyPreset('itu')">İTÜ Hedefi</button>
+              <button class="preset-btn" onclick="applyPreset('ytu')">YTÜ Hedefi</button>
+              <button class="preset-btn" onclick="applyPreset('btu')">BTÜ / İKÇÜ</button>
+              <button class="preset-btn" onclick="applyPreset('ktu')">KTÜ / İSTE</button>
+            </div>
+          </div>
+
+          <!-- OBP Girişi -->
+          <div class="input-group-row">
+            <label for="inputObp" class="group-label">Diploma Notu (OBP):</label>
+            <div class="range-with-val">
+              <input type="range" id="sliderObp" min="50" max="100" step="0.5" value="88">
+              <input type="number" id="inputObp" min="50" max="100" step="0.1" value="88" class="val-box">
+            </div>
+          </div>
+
+          <!-- TYT Netleri -->
+          <div class="net-section">
+            <div class="net-section-title">
+              <span class="badge tyt-badge">TYT (Temel Yeterlilik)</span>
+              <span class="badge-total">Toplam: <strong id="tytTotalDisplay">75.0</strong> Net</span>
+            </div>
+            
+            <div class="net-grid">
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Türkçe (40)</span>
+                  <span id="labelTytTurkce" class="net-counter">28.0</span>
+                </div>
+                <input type="range" id="netTytTurkce" min="0" max="40" step="0.5" value="28">
+              </div>
+
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Matematik (40)</span>
+                  <span id="labelTytMat" class="net-counter">27.0</span>
+                </div>
+                <input type="range" id="netTytMat" min="0" max="40" step="0.5" value="27">
+              </div>
+
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Fen Bilimleri (20)</span>
+                  <span id="labelTytFen" class="net-counter">12.0</span>
+                </div>
+                <input type="range" id="netTytFen" min="0" max="20" step="0.5" value="12">
+              </div>
+
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Sosyal Bilimler (20)</span>
+                  <span id="labelTytSosyal" class="net-counter">13.0</span>
+                </div>
+                <input type="range" id="netTytSosyal" min="0" max="20" step="0.5" value="13">
+              </div>
+            </div>
+          </div>
+
+          <!-- AYT Netleri -->
+          <div class="net-section">
+            <div class="net-section-title">
+              <span class="badge ayt-badge">AYT (Alan Yeterlilik - SAY)</span>
+              <span class="badge-total">Toplam: <strong id="aytTotalDisplay">46.0</strong> Net</span>
+            </div>
+
+            <div class="net-grid">
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>AYT Matematik (40)</span>
+                  <span id="labelAytMat" class="net-counter">26.0</span>
+                </div>
+                <input type="range" id="netAytMat" min="0" max="40" step="0.5" value="26">
+              </div>
+
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Fizik (14)</span>
+                  <span id="labelAytFizik" class="net-counter">8.0</span>
+                </div>
+                <input type="range" id="netAytFizik" min="0" max="14" step="0.5" value="8">
+              </div>
+
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Kimya (13)</span>
+                  <span id="labelAytKimya" class="net-counter">7.0</span>
+                </div>
+                <input type="range" id="netAytKimya" min="0" max="13" step="0.5" value="7">
+              </div>
+
+              <div class="net-item">
+                <div class="net-label-row">
+                  <span>Biyoloji (13)</span>
+                  <span id="labelAytBiyo" class="net-counter">7.0</span>
+                </div>
+                <input type="range" id="netAytBiyo" min="0" max="13" step="0.5" value="7">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sağ: Sonuç Göstergesi ve Eşleşen Üniversiteler -->
+        <div class="sim-results-card">
+          <!-- Skor Göstergesi -->
+          <div class="radar-gauge-box">
+            <div class="gauge-compass-circle">
+              <div class="gauge-content">
+                <div class="gauge-label">TAHMİNİ YERLEŞTİRME SAY PUANI</div>
+                <div class="gauge-score" id="resultScore">426.50</div>
+                <div class="gauge-rank-pill">
+                  Yaklaşık Sıralama: <strong id="resultRank">~58.000</strong>
+                </div>
+              </div>
+            </div>
+            <div class="gauge-notes">
+              *2024 YKS Sayısal katsayıları ve yığılma eğrilerine göre hesaplanmıştır.
+            </div>
+          </div>
+
+          <!-- 11. Sınıf Kişisel Mentor Tavsiyesi -->
+          <div class="coach-feedback-box" id="coachFeedback">
+            <!-- Dinamik doldurulacak -->
+          </div>
+
+          <!-- Eşleşen Üniversiteler Listesi -->
+          <div class="match-list-header">
+            <h4>Hedef Liman Durumu (Gemi İnşaat Programları)</h4>
+            <div class="legend-row">
+              <span class="legend-item"><span class="dot dot-safe"></span> Güvenli</span>
+              <span class="legend-item"><span class="dot dot-target"></span> Rota Hedefi</span>
+              <span class="legend-item"><span class="dot dot-reach"></span> Ekstra Net Gerek</span>
+            </div>
+          </div>
+
+          <div class="matching-unis-list" id="matchingUnisContainer">
+            <!-- JS ile doldurulacak -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== SEKME 4: 11. SINIF YOL HARİTASI ==================== -->
+    <section id="tab-roadmap" class="tab-pane">
+      <div class="pane-header">
+        <div class="section-tag">11. SINIF STRATEJİSİ</div>
+        <h2 class="section-title">Gemi İnşaat Rotası: 11'den 12'ye Adım Adım</h2>
+        <p class="pane-sub">
+          Gemi İnşaatı gibi yüksek puanlı bir mühendisliğe yerleşmek 12. sınıfta değil, 
+          11. sınıfın sayısal temelinde kazanılır. İşte sana özel hazırlanmış başarı takvimi.
+        </p>
+      </div>
+
+      <!-- Zaman Çizelgesi (Timeline) -->
+      <div class="roadmap-timeline" id="timelineContainer">
+        <!-- JS ile doldurulacak -->
+      </div>
+
+      <!-- 11. Sınıf Konu Ağırlık Analiz Kartı -->
+      <div class="weight-card">
+        <h3 class="weight-title">11. Sınıf Sayısal Konuları Neden Bu Kadar Hayati?</h3>
+        <p class="weight-desc">
+          AYT Sayısal testinin yaklaşık <strong>%60'ı doğrudan 11. sınıf müfredatından gelir!</strong> 
+          11'i iyi kapatan bir öğrenci, 12. sınıfta sadece üzerine koyarak ilk 20.000'e rahatlıkla girer.
+        </p>
+
+        <div class="topic-bars-grid">
+          <div class="topic-bar-item">
+            <div class="topic-meta">
+              <span>Trigonometri & Analitik Geometri (11. Sınıf)</span>
+              <span class="text-gold">AYT'de 7-9 Soru</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+            <small class="topic-hint">Gemi hidrostatik ve dinamik hesaplarının %100 matematiği!</small>
+          </div>
+
+          <div class="topic-bar-item">
+            <div class="topic-meta">
+              <span>Newton, Vektör, Enerji, Momentum (11. Sınıf Fizik)</span>
+              <span class="text-cyan">AYT'de 6-8 Soru</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+            <small class="topic-hint">Gemi direnci, dalga mekaniği ve pervane itişinin temeli.</small>
+          </div>
+
+          <div class="topic-bar-item">
+            <div class="topic-meta">
+              <span>Sıvı Çözeltiler, Denge, Hız (11. Sınıf Kimya)</span>
+              <span class="text-emerald">AYT'de 5-7 Soru</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
+            <small class="topic-hint">Korozyon, yakıt yanması ve motor termodinamiği.</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Öğrencinin Kendi Hedef Not Defteri -->
+      <div class="notebook-card">
+        <div class="notebook-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <h4>Kişisel 11. Sınıf Hedef Kartım</h4>
+        </div>
+        <div class="notebook-form">
+          <div class="note-row">
+            <label>Adın Soyadın:</label>
+            <input type="text" id="studentName" placeholder="Öğrencinin Adı..." value="11. Sınıf Gemi Mühendisi Adayı">
+          </div>
+          <div class="note-row">
+            <label>1. Tercih Hedef Üniversitem:</label>
+            <select id="studentGoalUni">
+              <option value="itu">İstanbul Teknik Üniversitesi (İTÜ)</option>
+              <option value="ytu">Yıldız Teknik Üniversitesi (YTÜ)</option>
+              <option value="piri">Pîrî Reis Üniversitesi (Burslu)</option>
+              <option value="btu">Bursa Teknik Üniversitesi</option>
+              <option value="ikcu">İzmir Kâtip Çelebi Üniversitesi</option>
+              <option value="ktu">Karadeniz Teknik Üniversitesi</option>
+              <option value="diger">Diğer Devlet Üniversiteleri</option>
+            </select>
+          </div>
+          <div class="note-row">
+            <label>Haftalık Çalışma Sözüm / Notum:</label>
+            <textarea id="studentNote" rows="3" placeholder="Örn: Bu hafta 11. sınıf Trigonometri testlerini bitireceğim ve her gün 20 paragraf çözeceğim."></textarea>
+          </div>
+          <div class="notebook-btns">
+            <button class="btn btn-primary" onclick="saveStudentPlan()">Hedefimi Kaydet</button>
+            <button class="btn btn-whatsapp" onclick="sendPlanToTeacher()">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="wa-icon"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.96.57 3.87 1.66 5.51L2 22l4.73-1.63c1.58.98 3.4 1.5 5.3 1.5 5.46 0 9.91-4.45 9.91-9.91A9.92 9.92 0 0 0 12.04 2zm5.78 14.04c-.24.67-1.39 1.25-1.93 1.33-.5.07-1.14.1-3.32-.8-2.61-1.08-4.28-3.76-4.41-3.93-.13-.17-1.06-1.41-1.06-2.69s.67-1.9 1-2.16c.27-.26.59-.32.79-.32.2 0 .4 0 .58.01.19.01.44-.07.69.52.26.61.88 2.14.96 2.3.08.16.13.35.03.55-.1.2-.15.33-.3.51-.15.18-.32.4-.46.54-.15.15-.31.32-.13.63.18.31.79 1.3 1.7 2.11 1.17 1.04 2.15 1.36 2.46 1.51.31.15.49.13.67-.08.18-.21.77-.9 1-.1.2-.23.4-.19.67-.09.27.1 1.7.8 1.99.94.29.14.49.21.56.33.07.12.07.72-.17 1.39z"/></svg>
+              Öğretmenime WhatsApp ile Gönder
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== SEKME 5: TERSANE & MÜFREDAT ==================== -->
+    <section id="tab-curriculum" class="tab-pane">
+      <div class="pane-header">
+        <div class="section-tag">4 YILLIK LİSANS MÜFREDATI</div>
+        <h2 class="section-title">Üniversitede Hangi Dersleri Göreceksin?</h2>
+        <p class="pane-sub">
+          Gemi mühendisliği eğitimi; teorik mekanik, bilgisayarlı 3D tasarım ve tersane saha uygulamalarının harmanlandığı çok yönlü bir serüvendir.
+        </p>
+      </div>
+
+      <!-- Müfredat Akordeonu -->
+      <div class="curriculum-list" id="curriculumListContainer">
+        <!-- JS ile doldurulacak -->
+      </div>
+
+      <!-- Gemi Mühendisliği Sözlüğü / Temel Kavramlar -->
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-tag">TERİMLER SÖZLÜĞÜ</div>
+          <h3 class="section-title">Deniz Mühendisliği Dili</h3>
+        </div>
+        <div class="glossary-grid">
+          <div class="glossary-card">
+            <span class="glossary-term">Endaze (Lines Plan)</span>
+            <p>Geminin su altı kıvrımlı gövde formunu yatay, düşey ve enine kesitlerle 3 boyutlu tanımlayan mimari çizim.</p>
+          </div>
+          <div class="glossary-card">
+            <span class="glossary-term">Deplasman (Displacement)</span>
+            <p>Geminin suya battığında yerini değiştirdiği suyun toplam ağırlığı (yani geminin ton cinsinden toplam kütlesi).</p>
+          </div>
+          <div class="glossary-card">
+            <span class="glossary-term">Draft (Su Çekimi)</span>
+            <p>Geminin omurgası (en alt noktası) ile su seviyesi arasındaki düşey derinlik mesafesi.</p>
+          </div>
+          <div class="glossary-card">
+            <span class="glossary-term">Stabilite (Metasentır - GM)</span>
+            <p>Geminin rüzgar veya dalga sebebiyle yana yattığında batmadan tekrar doğrulabilme yeteneği ve dengesi.</p>
+          </div>
+          <div class="glossary-card">
+            <span class="glossary-term">Kavitasyon (Cavitation)</span>
+            <p>Pervane kanatlarının arkasında basıncın düşmesiyle oluşan buhar kabarcıklarının patlayarak metale zarar vermesi olayı.</p>
+          </div>
+          <div class="glossary-card">
+            <span class="glossary-term">Klas Kuruluşu (Loyd)</span>
+            <p>Geminin inşasını, sac kalitesini ve güvenliğini denetleyip uluslararası sertifika veren bağımsız otorite (Türk Loydu, DNV).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== SEKME 6: SIKÇA SORULAN SORULAR ==================== -->
+    <section id="tab-faq" class="tab-pane">
+      <div class="pane-header">
+        <div class="section-tag">MERAK EDİLENLER</div>
+        <h2 class="section-title">Aklındaki Tüm Sorular & Cevapları</h2>
+        <p class="pane-sub">
+          Öğrencilerin ve ailelerin Gemi İnşaat Mühendisliği hakkında en sık sorduğu soruların net yanıtları.
+        </p>
+      </div>
+
+      <div class="faq-list" id="faqListContainer">
+        <!-- JS ile doldurulacak -->
+      </div>
+
+      <!-- İletişim / Paylaşım Kutusu -->
+      <div class="action-footer-card">
+        <h3>Öğretmeninle veya Arkadaşlarınla Paylaş</h3>
+        <p>
+          Bu rehberi telefonunun ana ekranına uygulama olarak ekleyebilir, 
+          hedefini öğretmenine göndererek çalışma planını birlikte takip edebilirsin.
+        </p>
+        <div class="footer-btn-row">
+          <button class="btn btn-whatsapp" onclick="sendPlanToTeacher()">
+            WhatsApp ile Rapor Gönder
+          </button>
+          <button class="btn btn-secondary" onclick="installPWA()">
+            📱 Telefona Uygulama Olarak Ekle
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== ALT MOBİL NAVİGASYON BARI ==================== -->
+  <nav class="app-nav">
+    <button class="nav-btn active" data-tab="overview">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      </div>
+      <span class="nav-text">Pusula</span>
+    </button>
+
+    <button class="nav-btn" data-tab="atlas">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <span class="nav-text">YÖK Atlas</span>
+    </button>
+
+    <button class="nav-btn" data-tab="simulator">
+      <div class="nav-icon nav-icon-highlight">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+      </div>
+      <span class="nav-text">Simülatör</span>
+    </button>
+
+    <button class="nav-btn" data-tab="roadmap">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+      </div>
+      <span class="nav-text">Rota 11</span>
+    </button>
+
+    <button class="nav-btn" data-tab="curriculum">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="nav-text">Dersler</span>
+    </button>
+
+    <button class="nav-btn" data-tab="faq">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <span class="nav-text">SSS</span>
+    </button>
+  </nav>
+
+  <!-- ==================== ÜNİVERSİTE DETAY MODALI ==================== -->
+  <div id="uniDetailModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeUniModal()">&times;</button>
+      <div id="uniModalBody" class="modal-body">
+        <!-- JS ile doldurulacak -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== KARŞILAŞTIRMA MODALI ==================== -->
+  <div id="compareModal" class="modal-overlay">
+    <div class="modal-card modal-card-wide">
+      <button class="modal-close-btn" onclick="closeCompareModal()">&times;</button>
+      <div class="modal-body">
+        <h3 class="modal-title">⚖️ Üniversite Karşılaştırma Tablosu</h3>
+        <p class="modal-sub">Seçtiğin üniversitelerin taban sıralama, net ortalamaları ve imkanlarını yan yana kıyasla.</p>
+        <div id="compareModalContent" class="compare-table-wrap">
+          <!-- JS ile doldurulacak -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PWA & Script Bağlantıları -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
